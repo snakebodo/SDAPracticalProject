@@ -1,0 +1,119 @@
+PCMS-1 - set up hibernate configuration
+
+PCM-2 - create hibernate model
+
+PCM-3 - create generic hibernate repository
+
+PCM-4 - implement menu
+
+
+
+
+
+
+PCM-5 - IMPLEMENT VET CREATION
+ As a user I should be able to add a new vet with the following details: firstname, lastname, address, speciality. If the creation process is successful
+the system will allocate a unique id to the new vet.
+    The system will validate the following data:
+            - fist name to be not blank and not empty
+            - last name to be not blank and not empty
+            - address to be not blank and not empty
+            - speciality to be not blank and not empty
+If the creation process fails the system will show an appropriate error message.
+
+PCM-6 - IMPLEMENT VIEW ALL VETS
+As a user I should be able to view all the existing vets from the system.
+        I should be able to view a list where each line will contain: id, firstname, lastname.
+
+PCM-7 - IMPLEMENT VIEW VET BY ID
+As a user I should be able to view all the details of an existing vet by id. If the given id is found in the system, the following details
+will be shown on the screen: id, firstname, lastname, address, speciality. If the given id is not found in the system an appropriate error message
+will be shown on the screen.
+
+PCM-8 - IMPLEMENT UPDATE VET
+As a user I should be able to update the details of an existing vet.
+If the vet is found by id in the system, I should be able to update the following data:
+            - last name
+            - address
+            - speciality
+The system will validate the following data:
+            - last name to be not blank and not empty
+            - address to be not blank and not empty
+            - speciality to be not blank and not empty
+    If the update process fails the system will show an appropriate error message.
+If the vet is not found by id in the system an appropriate error message will be shown.
+
+PCM-9 - IMPLEMENT DELETE VET
+As a user I should be able to delete and existing vet by id from the system.
+If the given id is found in the system the vet will be deleted and a message
+will be shown on the screen.
+If the given id is not found in the system an appropriate error message will be shown on the screen.
+
+//////////////////////////////////////////////////////////////////////////////
+
+PCM-10 - IMPLEMENT PET CREATION
+ As a user I should be able to add a new pet with the following details: race, birthdate, isVaccinated, ownerName. If the creation process is successful
+the system will allocate a unique id to the new pet.
+    The system will validate the following data:
+            - race to be not blank and not empty
+            - birthdate to be not blank and not empty, not to be in the future
+            - isVaccinated to be not blank and not empty
+            - ownerName to be not blank and not empty
+If the creation process fails the system will show an appropriate error message.
+
+PCM-11 - IMPLEMENT VIEW ALL PETS
+As a user I should be able to view all the existing pets from the system.
+        I should be able to view a list where each line will contain: id, race, ownerName.
+
+PCM-12 - IMPLEMENT VIEW PET BY ID
+As a user I should be able to view all the details of an existing pet by id. If the given id is found in the system, the following details
+will be shown on the screen: id, race, birthdate, isVaccinated, ownerName. If the given id is not found in the system an appropriate error message
+will be shown on the screen.
+
+PCM-13 - IMPLEMENT UPDATE PET
+As a user I should be able to update the details of an existing pet.
+If the pet is found by id in the system, I should be able to update the following data:
+            - isVaccinated
+            - ownerName
+The system will validate the following data:
+            - isVaccinated to be not blank and not empty
+            - ownerName to be not blank and not empty
+    If the update process fails the system will show an appropriate error message.
+If the pet is not found by id in the system an appropriate error message will be shown.
+
+PCM-14 - IMPLEMENT DELETE PET
+As a user I should be able to delete and existing pet by id from the system.
+If the given id is found in the system the pet will be deleted and a message
+will be shown on the screen.
+If the given id is not found in the system an appropriate error message will be shown on the screen.
+
+//////////////////////////////////////////////////////////////////////////////
+
+PCM-15 - IMPLEMENT CREATE CONSULT
+As a user I should be able to add a new consult with the following details: vet's id, pet's id, date, description. If the creation process is successful
+   the system will allocate a unique id to the new consult.
+       The system will validate the following data:
+               - vet's id to be not blank and not empty and to be present in the system
+               - pet's id to be not blank and not empty and to be present in the system
+               - date to be not blank and not empty
+               - description to be not blank and not empty
+   If the creation process fails the system will show an appropriate error message.
+
+PCM-16 - IMPLEMENT VIEW ALL CONSULTS
+   As a user I should be able to view all the existing consults from the system.
+           I should be able to view a list where each line will contain: consult id, vet's name, pet's ownerName, date.
+
+PCM-17 - IMPLEMENT VIEW CONSULT BY ID
+      As a user I should be able to view all the details of an existing consult by id. If the given id is found in the system, the following details
+      will be shown on the screen: consult id, vet's name, pet's ownerName, pet's race, consult date, consult description.
+      If the given id is not found in the system an appropriate error message
+      will be shown on the screen.
+
+PCM-18 - IMPLEMENT UPDATE CONSULT
+   As a user I should be able to update the details of an existing consult.
+   If the consult is found by id in the system, I should be able to update the following data:
+               - description
+   The system will validate the following data:
+               - description to be not blank and not empty
+       If the update process fails the system will show an appropriate error message.
+   If the consult is not found by id in the system an appropriate error message will be shown.
