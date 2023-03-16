@@ -46,6 +46,9 @@ public class Main {
                 case DELETE_VET:
                     System.out.println("Delete vet not implemented");
                     break;
+                case VIEW_VET_LIST:
+                    vetController.displayAllVets();
+                    break;
                 case EXIT:
                     System.out.println("Good Bye and have a nice day");
                     break;
