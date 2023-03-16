@@ -5,6 +5,7 @@ import com.sda.practicalproject.repository.exception.EntityUpdateFailedException
 import com.sda.practicalproject.service.VetService;
 import com.sda.practicalproject.service.exception.EntityNotFoundException;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class VetController {
@@ -62,18 +63,32 @@ public class VetController {
             System.out.println("Vet has been updated");
             return true;
 
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.err.println("Please insert corect details");
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
         } catch (EntityUpdateFailedException e) {
             System.err.println(e.getMessage());
             System.out.println("Please retry!");
-        }catch (EntityNotFoundException e){
+        } catch (EntityNotFoundException e) {
             System.err.println(e.getMessage());
         } catch (Exception e) {
             System.err.println("Internal server error");
         }
         return false;
+    }
+
+    public void findVetById() {
+        try {
+            System.out.println("Please insert the vet's id : ");
+            long id = Long.parseLong(scanner.nextLine());
+            Optional<Vet> optionalVet = vetService.findVetById(id);
+        } catch (NumberFormatException e) {
+            System.err.println("Please insert corect details");
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Internal server error");
+        }
     }
 }

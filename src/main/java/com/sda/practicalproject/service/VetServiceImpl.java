@@ -65,6 +65,13 @@ public class VetServiceImpl implements VetService{
             }
     }
 
+    @Override
+    public Optional<Vet> findVetById(long id) {
+        if(id <= 0){
+            throw new IllegalArgumentException("Please insert an correct id, must be bigger than 0");
+        }
+        return vetRepository.findById(id);
+    }
 
 
 }
