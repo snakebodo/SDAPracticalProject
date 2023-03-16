@@ -3,7 +3,6 @@ package com.sda.practicalproject;
 import com.sda.practicalproject.controller.VetController;
 import com.sda.practicalproject.controller.menu.MenuItem;
 import com.sda.practicalproject.repository.VetRepositoryImpl;
-import com.sda.practicalproject.service.VetService;
 import com.sda.practicalproject.service.VetServiceImpl;
 import com.sda.practicalproject.utils.SessionManager;
 
@@ -41,7 +40,7 @@ public class Main {
                     vetController.createVet();
                     break;
                 case UPDATE_VET:
-                    System.out.println("Update vet not implemented");
+                    vetController.updateVet();
                     break;
                 case DELETE_VET:
                     System.out.println("Delete vet not implemented");

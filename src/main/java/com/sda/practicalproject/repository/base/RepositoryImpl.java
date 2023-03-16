@@ -1,6 +1,5 @@
 package com.sda.practicalproject.repository.base;
 
-import com.sda.practicalproject.repository.base.Repository;
 import com.sda.practicalproject.repository.exception.EntityUpdateFailedException;
 import com.sda.practicalproject.utils.SessionManager;
 import org.hibernate.Session;
@@ -29,7 +28,7 @@ public class RepositoryImpl<T> implements Repository<T> {
             if (transaction != null) {
                 transaction.rollback();
             }
-            throw new EntityUpdateFailedException("Save failed for " + entityClass.getName(), e);
+            throw new EntityUpdateFailedException("Save failed for " + entityClass.getName());
         }
     }
 
@@ -44,7 +43,7 @@ public class RepositoryImpl<T> implements Repository<T> {
             if (transaction != null) {
                 transaction.rollback();
             }
-            throw new EntityUpdateFailedException("Update failed for " + entityClass.getName(), e);
+            throw new EntityUpdateFailedException("Update failed for " + entityClass.getName());
         }
     }
 
@@ -59,7 +58,7 @@ public class RepositoryImpl<T> implements Repository<T> {
             if (transaction != null) {
                 transaction.rollback();
             }
-            throw new EntityUpdateFailedException("Delete failed for " + entityClass.getName(), e);
+            throw new EntityUpdateFailedException("Delete failed for " + entityClass.getName());
         }
     }
 
