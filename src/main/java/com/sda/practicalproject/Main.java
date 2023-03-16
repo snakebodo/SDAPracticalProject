@@ -1,6 +1,10 @@
 package com.sda.practicalproject;
 
-import com.sda.practicalproject.controler.menu.MenuItem;
+import com.sda.practicalproject.controller.VetController;
+import com.sda.practicalproject.controller.menu.MenuItem;
+import com.sda.practicalproject.repository.VetRepositoryImpl;
+import com.sda.practicalproject.service.VetService;
+import com.sda.practicalproject.service.VetServiceImpl;
 import com.sda.practicalproject.utils.SessionManager;
 
 import java.util.Scanner;
@@ -10,6 +14,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         SessionManager.getSessionFactory();
+        VetController vetController = new VetController(
+                new VetServiceImpl(
+                        new VetRepositoryImpl()),
+                        scanner
+        );
 
         for (int i = 0; i <= 100; i++) {
             System.out.println("/////////////////////////////////");
@@ -22,14 +31,14 @@ public class Main {
             try {
                 int numericOption = Integer.parseInt(scanner.nextLine());
                 selectedOption = MenuItem.searchByOption(numericOption);
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Please use numeric value");
                 selectedOption = MenuItem.UNKNOWN;
             }
 
             switch (selectedOption) {
                 case ADD_VET:
-                    System.out.println("Add vet not implemented");
+                    vetController.createVet();
                     break;
                 case UPDATE_VET:
                     System.out.println("Update vet not implemented");
