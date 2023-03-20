@@ -9,6 +9,7 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class PetController {
@@ -47,5 +48,9 @@ public class PetController {
             System.err.println("Internal server error");
             e.printStackTrace();
         }
+    }
+    public void viewAllPets(){
+        petService.getAllPets().stream()
+                .forEach(pet -> System.out.println(pet.getId() + " " + pet.getRace() + " " + pet.getOwnerName()));
     }
 }

@@ -61,7 +61,7 @@ the system will allocate a unique id to the new pet.
             - ownerName to be not blank and not empty
 If the creation process fails the system will show an appropriate error message.
 
-PCM-11 - IMPLEMENT VIEW ALL PETS
+PCM-11 - IMPLEMENT VIEW ALL PETS -- Done
 As a user I should be able to view all the existing pets from the system.
         I should be able to view a list where each line will contain: id, race, ownerName.
 
