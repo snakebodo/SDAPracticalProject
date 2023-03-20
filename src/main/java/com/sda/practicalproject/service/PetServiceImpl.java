@@ -8,6 +8,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public class PetServiceImpl implements PetService{
     private final PetRepository petRepository;
@@ -39,4 +40,11 @@ public class PetServiceImpl implements PetService{
         return petRepository.findAll();
     }
 
+    @Override
+    public Optional<Pet> getPetById(long id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Please insert an correct id, must be bigger than 0");
+        }
+        return petRepository.findById(id);
+    }
 }
