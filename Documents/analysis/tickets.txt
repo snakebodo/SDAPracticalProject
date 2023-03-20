@@ -43,7 +43,7 @@ The system will validate the following data:
     If the update process fails the system will show an appropriate error message.
 If the vet is not found by id in the system an appropriate error message will be shown.
 
-PCM-9 - IMPLEMENT DELETE VET
+PCM-9 - IMPLEMENT DELETE VET -- DONE
 As a user I should be able to delete and existing vet by id from the system.
 If the given id is found in the system the vet will be deleted and a message
 will be shown on the screen.

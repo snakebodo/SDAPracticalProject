@@ -8,7 +8,7 @@ import com.sda.practicalproject.service.exception.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
-public class VetServiceImpl implements VetService{
+public class VetServiceImpl implements VetService {
     private final VetRepository vetRepository;
 
     public VetServiceImpl(VetRepository vetRepository) {
@@ -18,16 +18,16 @@ public class VetServiceImpl implements VetService{
     @Override
     public void addVet(String firstName, String lastName, String address, String speciality) throws EntityUpdateFailedException {
 
-        if(firstName == null || firstName.isBlank() || firstName.isEmpty()){
+        if (firstName == null || firstName.isBlank() || firstName.isEmpty()) {
             throw new IllegalArgumentException("First name is null or blank");
         }
-        if(lastName == null || lastName.isBlank() || lastName.isEmpty()){
+        if (lastName == null || lastName.isBlank() || lastName.isEmpty()) {
             throw new IllegalArgumentException("Last name is null or blank");
         }
-        if(address == null || address.isBlank() || address.isEmpty()){
+        if (address == null || address.isBlank() || address.isEmpty()) {
             throw new IllegalArgumentException("Address is null or blank");
         }
-        if(speciality == null || speciality.isBlank() || speciality.isEmpty()){
+        if (speciality == null || speciality.isBlank() || speciality.isEmpty()) {
             throw new IllegalArgumentException("Specialty is null or blank");
         }
         Vet vet = new Vet(firstName, lastName, address, speciality);
@@ -41,36 +41,49 @@ public class VetServiceImpl implements VetService{
 
     @Override
     public void updateVet(long id, String lastName, String address, String speciality) throws EntityUpdateFailedException, EntityNotFoundException {
-        if(id <= 0){
+        if (id <= 0) {
             throw new IllegalArgumentException("Please insert an correct id, must be bigger than 0");
         }
-        if(lastName == null || lastName.isBlank() || lastName.isEmpty()){
+        if (lastName == null || lastName.isBlank() || lastName.isEmpty()) {
             throw new IllegalArgumentException("Last name is null or blank");
         }
-        if(address == null || address.isBlank() || address.isEmpty()){
+        if (address == null || address.isBlank() || address.isEmpty()) {
             throw new IllegalArgumentException("Address is null or blank");
         }
-        if(speciality == null || speciality.isBlank() || speciality.isEmpty()){
+        if (speciality == null || speciality.isBlank() || speciality.isEmpty()) {
             throw new IllegalArgumentException("Specialty is null or blank");
         }
         Optional<Vet> optionalVet = vetRepository.findById(id);
-            if(optionalVet.isPresent()){
-                Vet vet  = optionalVet.get();
-                vet.setLastName(lastName);
-                vet.setAddress(address);
-                vet.setSpeciality(speciality);
-                vetRepository.update(vet);
-            }else{
-                throw new EntityNotFoundException("Vet not found by id : " + id);
-            }
+        if (optionalVet.isPresent()) {
+            Vet vet = optionalVet.get();
+            vet.setLastName(lastName);
+            vet.setAddress(address);
+            vet.setSpeciality(speciality);
+            vetRepository.update(vet);
+        } else {
+            throw new EntityNotFoundException("Vet not found by id : " + id);
+        }
     }
 
     @Override
     public Optional<Vet> findVetById(long id) {
-        if(id <= 0){
+        if (id <= 0) {
             throw new IllegalArgumentException("Please insert an correct id, must be bigger than 0");
         }
         return vetRepository.findById(id);
+    }
+
+    @Override
+    public void deleteVetById(long id) throws EntityUpdateFailedException, EntityNotFoundException {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Please insert an correct id, must be bigger than 0");
+        }
+        Optional<Vet> vetOptional = vetRepository.findById(id);
+        if (vetOptional.isPresent()) {
+            vetRepository.delete(vetOptional.get());
+        } else {
+            throw new EntityNotFoundException("Vet not found by id : " + id);
+        }
     }
 
 
