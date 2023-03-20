@@ -3,7 +3,9 @@ package com.sda.practicalproject.service;
 import com.sda.practicalproject.model.Pet;
 import com.sda.practicalproject.repository.PetRepository;
 import com.sda.practicalproject.repository.exception.EntityUpdateFailedException;
+import com.sda.practicalproject.service.exception.EntityNotFoundException;
 
+import javax.swing.text.html.Option;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
@@ -46,5 +48,18 @@ public class PetServiceImpl implements PetService{
             throw new IllegalArgumentException("Please insert an correct id, must be bigger than 0");
         }
         return petRepository.findById(id);
+    }
+
+    @Override
+    public void deletePetById(long id) throws EntityUpdateFailedException, EntityNotFoundException {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Please insert an correct id, must be bigger than 0");
+        }
+        Optional<Pet> optionalPet = petRepository.findById(id);
+        if(optionalPet.isPresent()){
+            petRepository.delete(optionalPet.get());
+        }else{
+            throw new EntityNotFoundException("Pet id not found");
+        }
     }
 }

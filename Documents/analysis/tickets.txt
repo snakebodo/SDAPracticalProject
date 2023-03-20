@@ -70,7 +70,7 @@ As a user I should be able to view all the details of an existing pet by id. If 
 will be shown on the screen: id, race, birthdate, isVaccinated, ownerName. If the given id is not found in the system an appropriate error message
 will be shown on the screen.
 
-PCM-13 - IMPLEMENT UPDATE PET
+PCM-13 - IMPLEMENT UPDATE PET -- Homework
 As a user I should be able to update the details of an existing pet.
 If the pet is found by id in the system, I should be able to update the following data:
             - isVaccinated
@@ -81,7 +81,7 @@ The system will validate the following data:
     If the update process fails the system will show an appropriate error message.
 If the pet is not found by id in the system an appropriate error message will be shown.
 
-PCM-14 - IMPLEMENT DELETE PET
+PCM-14 - IMPLEMENT DELETE PET -- DONE
 As a user I should be able to delete and existing pet by id from the system.
 If the given id is found in the system the pet will be deleted and a message
 will be shown on the screen.
