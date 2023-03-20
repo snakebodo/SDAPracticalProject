@@ -51,7 +51,7 @@ If the given id is not found in the system an appropriate error message will be 
 
 //////////////////////////////////////////////////////////////////////////////
 
-PCM-10 - IMPLEMENT PET CREATION
+PCM-10 - IMPLEMENT PET CREATION -- DONE
  As a user I should be able to add a new pet with the following details: race, birthdate, isVaccinated, ownerName. If the creation process is successful
 the system will allocate a unique id to the new pet.
     The system will validate the following data:
