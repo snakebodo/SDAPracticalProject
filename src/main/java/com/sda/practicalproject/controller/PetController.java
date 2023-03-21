@@ -91,4 +91,29 @@ public class PetController {
             System.err.println("Internal server error");
         }
     }
+    public void updatePet(){
+        try {
+            System.out.println("Please insert the vet's id : ");
+            long id = Long.parseLong(scanner.nextLine());
+            System.out.println("Please insert the pet's last name : ");
+            boolean isVaccinated = Boolean.parseBoolean(scanner.nextLine());
+            System.out.println("Please insert the pet's address : ");
+            String ownerName = scanner.nextLine();
+
+            petService.updatePet(id, isVaccinated, ownerName);
+            System.out.println("Pet has been updated");
+
+        } catch (NumberFormatException e) {
+            System.err.println("Please insert corect details");
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+        }catch (EntityNotFoundException e){
+            System.err.println(e.getMessage());
+        } catch (EntityUpdateFailedException e) {
+            System.err.println(e.getMessage());
+            System.out.println("Please retry!");
+        } catch (Exception e) {
+            System.err.println("Internal server error");
+        }
+    }
 }
